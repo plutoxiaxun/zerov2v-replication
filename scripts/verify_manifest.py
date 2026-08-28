@@ -16,6 +16,8 @@ def main() -> None:
     for line in (PACKAGE / "MANIFEST.sha256").read_text(encoding="ascii").splitlines():
         expected, relative = line.split("  ", 1)
         listed.add(relative)
+        if any(part.startswith(".") for part in Path(relative).parts):
+            failures.append((relative, "visible release path", "hidden manifest entry"))
         path = PACKAGE / relative
         observed = hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else "missing"
         if observed != expected:
@@ -24,7 +26,7 @@ def main() -> None:
         str(path.relative_to(PACKAGE))
         for path in PACKAGE.rglob("*")
         if path.is_file()
-        and path.name not in {"MANIFEST.sha256", ".DS_Store"}
+        and path.name != "MANIFEST.sha256"
         and ".git" not in path.relative_to(PACKAGE).parts
         and "__pycache__" not in path.relative_to(PACKAGE).parts
         and path.suffix not in {".pyc", ".pyo"}

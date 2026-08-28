@@ -589,10 +589,10 @@ def audit_packaging_hygiene(failures: list[str]) -> None:
         if ".git" in relative.parts:
             continue
         require(
-            path.name != ".DS_Store"
+            not any(part.startswith(".") for part in relative.parts)
             and "__pycache__" not in relative.parts
             and path.suffix not in {".pyc", ".pyo"},
-            f"{relative}: generated local file must not be released",
+            f"{relative}: hidden or generated local file must not be released",
             failures,
         )
 
