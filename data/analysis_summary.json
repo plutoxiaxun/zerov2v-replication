@@ -1,0 +1,92 @@
+{
+  "public_row_counts": {
+    "controlled_trials.csv": 39,
+    "conversion_environment_summary.csv": 2,
+    "master_analysis.csv": 210,
+    "strict_matrix.csv": 66,
+    "current_workset.csv": 7,
+    "final_core_validation.csv": 12,
+    "sensitivity_rows.csv": 3,
+    "boundary_cases.csv": 2
+  },
+  "source_summary": {
+    "rows": 210,
+    "unique_job_ids": 210,
+    "population_counts": {
+      "historical_primary": 104,
+      "historical_sensitivity": 3,
+      "controlled_trial": 39,
+      "strict_matrix": 66,
+      "current_workset": 7,
+      "sparse_policy_trial": 18,
+      "final_core": 12
+    },
+    "low_downtime_definition": "final outage: vCenter power-off request to target VM resource creation",
+    "low_downtime_primary": {
+      "n": 45,
+      "mean": 320.64444444444445,
+      "median": 97.0,
+      "min": 55.0,
+      "max": 5204.0,
+      "sample_sd": 776.7486183841052
+    },
+    "low_downtime_primary_without_post_shutdown_recovery": {
+      "n": 42,
+      "mean": 174.73809523809524,
+      "median": 92.0,
+      "min": 55.0,
+      "max": 446.0,
+      "sample_sd": 128.44948889070517
+    },
+    "low_downtime_primary_post_shutdown_recovery": {
+      "n": 3,
+      "mean": 2363.3333333333335,
+      "median": 1364.0,
+      "min": 522.0,
+      "max": 5204.0,
+      "sample_sd": 2495.852826857652
+    },
+    "low_downtime_all_without_post_shutdown_recovery": {
+      "n": 45,
+      "mean": 263.5111111111111,
+      "median": 97.0,
+      "min": 55.0,
+      "max": 2409.0,
+      "sample_sd": 397.29475102487726
+    },
+    "low_downtime_all_completed": {
+      "n": 48,
+      "mean": 394.75,
+      "median": 108.5,
+      "min": 55.0,
+      "max": 5204.0,
+      "sample_sd": 822.6149922849175
+    },
+    "low_downtime_boundary_basis_counts": {
+      "vcenter_poweroff_request": 41,
+      "manual_cutover_fallback": 6,
+      "powered_off_fallback": 1
+    },
+    "duplicate_source_records": 61,
+    "boundary_conflicts": 0
+  },
+  "public_metrics": {
+    "historical_observed_vm_count": 46,
+    "historical_direct_guest_os_counts": {
+      "CentOS/RHEL": 15,
+      "UOS": 3,
+      "Windows": 32,
+      "openEuler": 42
+    }
+  },
+  "release_evidence": {
+    "final_core_code_commit": [
+      "3681503dd376425eec126ea66249bc2cbcbe377f"
+    ],
+    "final_core_summary_sha256": "41a9cfbf1774bafae04a03cc7ddb25fd6a438fa4f5e29b1a8dd3bb068749e64d",
+    "final_core_plan_sha256": "e9872728cb4a254daa5c35fa123d81d9b3ddb819e2477a290244ccc207897a68",
+    "final_core_state_database_sha256": "88c96451c1e9d2d222fe78bce72df2b0527b7014ac92bfaadc2fe59b42f80f70",
+    "final_core_evidence_file_count": 42,
+    "final_core_evidence_files_verified": 42
+  }
+}

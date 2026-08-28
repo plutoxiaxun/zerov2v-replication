@@ -1,0 +1,40 @@
+record_id,group,trial,mode,conversion_mode,duration_s,downtime_s,final_cbt_mib,shutdown_s,final_sync_s,repair_s,registration_s,residual_s
+C0001,VM-B / QCOW2 staging,1,coldQcow2,Integrated,253,253,,,,,,
+C0002,VM-B / QCOW2 staging,2,coldQcow2,Integrated,257,257,,,,,,
+C0003,VM-B / QCOW2 staging,3,coldQcow2,Integrated,253,253,,,,,,
+C0004,VM-B / Cold direct TCG,1,cold,TCG,438,438,,,,265.3,,
+C0005,VM-B / Cold direct TCG,2,cold,TCG,433,433,,,,263.1,,
+C0006,VM-B / Cold direct TCG,3,cold,TCG,440,440,,,,266.2,,
+C0007,VM-B / Cold direct KVM,1,cold,KVM,210,210,,,,40.2,,
+C0008,VM-B / Cold direct KVM,2,cold,KVM,212,212,,,,38.9,,
+C0009,VM-B / Cold direct KVM,3,cold,KVM,213,213,,,,40.1,,
+C0010,VM-C / QCOW2 staging,1,coldQcow2,Integrated,972,972,,,,,,
+C0011,VM-C / QCOW2 staging,2,coldQcow2,Integrated,978,978,,,,,,
+C0012,VM-C / QCOW2 staging,3,coldQcow2,Integrated,973,973,,,,,,
+C0013,VM-C / Cold direct KVM,1,cold,KVM,765,765,,,,139.2,,
+C0014,VM-C / Cold direct KVM,2,cold,KVM,765,765,,,,145.0,,
+C0015,VM-C / Cold direct KVM,3,cold,KVM,769,769,,,,145.0,,
+C0016,VM-E / Low-downtime TCG,1,lowDowntimeRbd,TCG,405,280,1.8,1.0,8.0,266.0,5.0,14.0
+C0017,VM-E / Low-downtime TCG,2,lowDowntimeRbd,TCG,416,278,8.2,1.0,8.0,264.0,5.0,14.0
+C0018,VM-E / Low-downtime TCG,3,lowDowntimeRbd,TCG,419,281,8.8,1.0,8.0,266.0,6.0,15.0
+C0019,VM-E / Low-downtime KVM,1,lowDowntimeRbd,KVM,193,57,9.0,1.0,8.0,42.0,6.0,15.0
+C0020,VM-E / Low-downtime KVM,2,lowDowntimeRbd,KVM,196,57,8.0,1.0,8.0,42.0,6.0,15.0
+C0021,VM-E / Low-downtime KVM,3,lowDowntimeRbd,KVM,194,57,8.5,1.0,8.0,43.0,5.0,14.0
+C0022,VM-F / Low-downtime TCG,1,lowDowntimeRbd,TCG,456,247,1.1,1.0,9.0,232.0,5.0,15.0
+C0023,VM-F / Low-downtime TCG,2,lowDowntimeRbd,TCG,508,253,74.575,2.0,17.0,229.0,5.0,24.0
+C0024,VM-F / Low-downtime TCG,3,lowDowntimeRbd,TCG,501,254,55.575,1.0,16.0,231.0,6.0,23.0
+C0025,VM-F / Low-downtime KVM,1,lowDowntimeRbd,KVM,329,74,42.875,1.0,16.0,52.0,5.0,22.0
+C0026,VM-F / Low-downtime KVM,2,lowDowntimeRbd,KVM,329,75,73.875,2.0,17.0,50.0,6.0,25.0
+C0027,VM-F / Low-downtime KVM,3,lowDowntimeRbd,KVM,330,75,73.775,1.0,18.0,51.0,5.0,24.0
+C0028,VM-G / Low-downtime TCG,1,lowDowntimeRbd,TCG,4219,343,72.8,2.0,26.0,308.0,7.0,35.0
+C0029,VM-G / Low-downtime TCG,2,lowDowntimeRbd,TCG,4317,336,58.0,2.0,24.0,302.0,8.0,34.0
+C0030,VM-G / Low-downtime TCG,3,lowDowntimeRbd,TCG,4120,329,19.0,3.0,17.0,301.0,8.0,28.0
+C0031,VM-G / Low-downtime KVM,1,lowDowntimeRbd,KVM,3996,85,50.2,2.0,22.0,53.0,8.0,32.0
+C0032,VM-G / Low-downtime KVM,2,lowDowntimeRbd,KVM,3970,99,105.5,2.0,36.0,54.0,7.0,45.0
+C0033,VM-G / Low-downtime KVM,3,lowDowntimeRbd,KVM,3890,81,23.2,2.0,18.0,53.0,8.0,28.0
+C0034,VM-H / Low-downtime TCG,1,lowDowntimeRbd,TCG,3554,376,20.5,2.0,12.0,356.0,6.0,20.0
+C0035,VM-H / Low-downtime TCG,2,lowDowntimeRbd,TCG,3571,372,23.8,1.0,12.0,354.0,5.0,18.0
+C0036,VM-H / Low-downtime TCG,3,lowDowntimeRbd,TCG,3569,374,24.2,2.0,12.0,354.0,6.0,20.0
+C0037,VM-H / Low-downtime KVM,1,lowDowntimeRbd,KVM,3282,82,25.2,2.0,12.0,62.0,6.0,20.0
+C0038,VM-H / Low-downtime KVM,2,lowDowntimeRbd,KVM,3271,82,23.8,2.0,12.0,62.0,6.0,20.0
+C0039,VM-H / Low-downtime KVM,3,lowDowntimeRbd,KVM,3286,81,15.0,0.0,13.0,63.0,5.0,18.0

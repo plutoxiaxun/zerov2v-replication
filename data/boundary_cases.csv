@@ -1,0 +1,3 @@
+case_id,record_id,path,provisioned_gib,active_seconds,active_minutes,evidence_role
+B600,M0065,direct_full_read,600.0,6840.0,114.000000,boundary_counterexample
+B600,M0108,staged_qcow2,600.0,1657.0,27.616667,boundary_counterexample

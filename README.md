@@ -1,0 +1,69 @@
+# ZeroV2V Replication Package
+
+This repository accompanies the ZeroV2V IEEE Access manuscript. It contains
+the deidentified data and analysis scripts used to calculate the results
+reported in the paper. Tagged releases are archived in Zenodo.
+Reviewers can start with [REVIEWER_GUIDE.md](REVIEWER_GUIDE.md).
+
+## Contents and scope
+
+The per-run tables cover the controlled comparisons, the current-workset
+comparison, and the 66-run protocol matrix. Selection and exclusion fields
+distinguish performance observations from recovery and sensitivity cases. An
+additional 12-run fault-validation cohort is published in
+`final_core_validation.csv`; it is kept separate from the 66-run matrix and
+from all performance calculations.
+
+Each row has one `analysis_class`. Every row with
+`performance_eligible=False` also has a machine-readable
+`performance_exclusion_code` and a human-readable explanation. These fields
+make adverse, sensitivity, recovery, and correctness-only observations
+explicit without removing them from the release.
+
+The per-run files support recalculation of the controlled comparisons,
+downtime strata, current-workset results, boundary cases, and protocol evidence
+counts. The heterogeneous historical TCG/KVM distribution in Table V is the
+one aggregate-only result; it is descriptive and is not used as a causal
+comparison. Measurements that showed no benefit or favored staging are
+included alongside favorable results. The archive does not include
+infrastructure credentials, IP addresses, real VM names, cloud resource UUIDs,
+RBD image names, VMware snapshot identifiers, or complete service journals.
+
+This is a data-and-analysis replication package. It publishes the evidence and
+standard-library scripts needed to reproduce the reported calculations, but it
+does not distribute the ZeroV2V migration-controller implementation. The
+protocol, state transitions, recovery boundaries, and pseudocode needed to
+review the design are provided in the manuscript.
+
+See [DATA_DICTIONARY.md](DATA_DICTIONARY.md) for file grain and field
+semantics, and [PUBLICATION_NOTES.md](PUBLICATION_NOTES.md) for cohort
+boundaries and interpretation of adverse or confounded observations.
+The machine-readable `data/figure_table_trace.json` maps every data-bearing
+manuscript figure or table to its public inputs, transformation, supported
+claim, and limitation.
+
+## Reproduce the public analysis
+
+From the released repository:
+
+```bash
+python3 scripts/verify_manifest.py
+python3 scripts/audit_public_release.py
+python3 scripts/analyze_public_data.py
+```
+
+The scripts use only the Python standard library and require Python 3.10 or
+newer. `MANIFEST.sha256` covers every released artifact. The release audit
+rejects unlisted files and checks for common identifier and credential
+patterns.
+
+See [DATA_ACCESS.md](DATA_ACCESS.md) for the controlled-access procedure.
+[EXPERIMENT_RUNBOOK.md](EXPERIMENT_RUNBOOK.md) separates public
+statistical reproduction from infrastructure re-execution and records the
+final fault-validation cohort.
+
+## Licenses
+
+Package-specific code in `scripts/` is released under Apache-2.0. The
+deidentified data and documentation are released under CC BY 4.0. Full terms
+and file-level scope are listed in [LICENSES.md](LICENSES.md).

@@ -1,0 +1,14 @@
+group,n,duration_mean_s,duration_sd_s,duration_min_s,duration_max_s,downtime_mean_s,downtime_sd_s,downtime_min_s,downtime_max_s,repair_mean_s,repair_sd_s,final_cbt_mean_mib,shutdown_mean_s,final_sync_mean_s,registration_mean_s,residual_mean_s
+VM-B / QCOW2 staging,3,254.3,2.3,253,257,254.3,2.3,253,257,,,,,,,
+VM-B / Cold direct TCG,3,437.0,3.6,433,440,437.0,3.6,433,440,264.9,1.6,,,,,
+VM-B / Cold direct KVM,3,211.7,1.5,210,213,211.7,1.5,210,213,39.7,0.7,,,,,
+VM-C / QCOW2 staging,3,974.3,3.2,972,978,974.3,3.2,972,978,,,,,,,
+VM-C / Cold direct KVM,3,766.3,2.3,765,769,766.3,2.3,765,769,143.1,3.3,,,,,
+VM-E / Low-downtime TCG,3,413.3,7.4,405,419,279.7,1.5,278,281,265.3,1.2,6.3,1.0,8.0,5.3,14.3
+VM-E / Low-downtime KVM,3,194.3,1.5,193,196,57.0,0.0,57,57,42.3,0.6,8.5,1.0,8.0,5.7,14.7
+VM-F / Low-downtime TCG,3,488.3,28.2,456,508,251.3,3.8,247,254,230.7,1.5,43.8,1.3,14.0,5.3,20.7
+VM-F / Low-downtime KVM,3,329.3,0.6,329,330,74.7,0.6,74,75,51.0,1.0,63.5,1.3,17.0,5.3,23.7
+VM-G / Low-downtime TCG,3,4218.7,98.5,4120,4317,336.0,7.0,329,343,303.7,3.8,49.9,2.3,22.3,7.7,32.3
+VM-G / Low-downtime KVM,3,3952.0,55.2,3890,3996,88.3,9.5,81,99,53.3,0.6,59.6,2.0,25.3,7.7,35.0
+VM-H / Low-downtime TCG,3,3564.7,9.3,3554,3571,374.0,2.0,372,376,354.7,1.2,22.8,1.7,12.0,5.7,19.3
+VM-H / Low-downtime KVM,3,3279.7,7.8,3271,3286,81.7,0.6,81,82,62.3,0.6,21.3,1.3,12.3,5.7,19.3
