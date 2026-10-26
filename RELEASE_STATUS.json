@@ -1,11 +1,17 @@
 {
-  "status": "local_release_not_uploaded",
+  "status": "reserved_doi_pending_publication",
   "version": "1.1.0",
   "previousPublicVersion": "1.0.2",
   "preparedDate": "2026-10-25",
   "manuscript": "ZeroV2V: A Recoverable VMware-to-KVM/Ceph Migration Protocol with Final-RBD Checkpointing",
   "previousArchiveDOI": "10.5281/zenodo.22143427",
   "previousArchiveContainsTheseNewFiles": false,
-  "newVersionDOI": null,
-  "publicUploadPerformed": false
+  "newVersionDOI": "10.5281/zenodo.23667792",
+  "publicUploadPerformed": false,
+  "doiVerification": {
+    "checkedDate": "2026-10-26",
+    "source": "author-confirmed reserved DOI; upload and publication pending",
+    "publicAvailabilityVerified": false,
+    "observation": "DOI resolver, Zenodo record API and DataCite API returned HTTP 404; publication date and archived file identity not yet verified."
+  }
 }

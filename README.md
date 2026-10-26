@@ -4,7 +4,9 @@ This repository accompanies the ZeroV2V IEEE Access manuscript. It contains
 the deidentified data and analysis scripts used to calculate the results
 reported in the paper, **ZeroV2V: A Recoverable VMware-to-KVM/Ceph Migration
 Protocol with Final-RBD Checkpointing**. This is the **1.1.0 release package**,
-prepared locally and not yet uploaded to GitHub or Zenodo. The previous public
+with reserved DOI [10.5281/zenodo.23667792](https://doi.org/10.5281/zenodo.23667792).
+Upload and publication are pending, as confirmed by the author; see
+`RELEASE_STATUS.json`. The previous public
 version is **1.0.2** and remains archived separately.
 See [REVISION_DISCLOSURE.md](REVISION_DISCLOSURE.md)
 for the added data, measurement definitions and publication checklist.
@@ -75,8 +77,8 @@ rejects unlisted files; the release audit checks file types and common
 identifier and credential patterns.
 
 `--release-ready` checks package hygiene and metadata consistency; it does not
-mean that a public upload has occurred. Version 1.1.0 has no new
-DOI until a new archive is actually published.
+mean that a public upload has occurred. The DOI above identifies the intended
+1.1.0 archive; the release date will be recorded after publication.
 
 See [DATA_ACCESS.md](DATA_ACCESS.md) for the controlled-access procedure.
 [EXPERIMENT_RUNBOOK.md](EXPERIMENT_RUNBOOK.md) separates public

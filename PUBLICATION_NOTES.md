@@ -4,7 +4,8 @@ The following path-count summary refers to the original release cohorts,
 not all later supplementary observations. Version 1.1.0 adds
 separate cohorts described in [REVISION_DISCLOSURE.md](REVISION_DISCLOSURE.md).
 Neither the original observations nor the slow database and concurrency runs
-are replaced. This version has not yet been uploaded publicly.
+are replaced. DOI 10.5281/zenodo.23667792 is reserved for this version;
+upload and publication are pending, as recorded in `RELEASE_STATUS.json`.
 
 ## Path-comparison results
 

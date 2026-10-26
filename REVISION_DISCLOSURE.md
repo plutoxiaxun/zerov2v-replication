@@ -1,7 +1,9 @@
 # Disclosure for the condensed revision
 
 Version 1.1.0 adds the observations and calculations supporting
-the 20-page revision. It has **not** been uploaded to GitHub or Zenodo. The
+the 20-page revision. Its reserved DOI is
+[10.5281/zenodo.23667792](https://doi.org/10.5281/zenodo.23667792);
+upload and publication are pending. The
 previous public version is 1.0.2; its archive DOI is not a DOI for these new files.
 See [RELEASE_STATUS.json](RELEASE_STATUS.json).
 
@@ -182,7 +184,8 @@ not part of the deidentified experimental records.
 
 Run the manifest, release audit, both analysis scripts and regression tests
 from a clean standalone copy. Use public tag `v1.1.0` and create a new Zenodo
-version rather than overwriting the 1.0.2 archive. Then update citation metadata
-and the manuscript data-availability statement to the actually published
-version and DOI. This directory is prepared for that step, not evidence that
-the step has already occurred.
+version rather than overwriting the 1.0.2 archive. The supplied 1.1.0 DOI is now
+in the citation metadata and manuscript. Confirm that its public record contains
+the intended version and files before marking publication verified or filling in
+the release date. These local metadata updates do not upload or replace any
+GitHub or Zenodo content.

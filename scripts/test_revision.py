@@ -80,12 +80,13 @@ class ReleaseMetadataTests(unittest.TestCase):
         audit_public_release.audit_release_metadata(failures)
         return failures
 
-    def test_formal_version_not_uploaded(self):
+    def test_formal_version_with_supplied_doi(self):
         status = json.loads((self.package / 'RELEASE_STATUS.json').read_text())
         self.assertEqual(status['version'], '1.1.0')
         self.assertEqual(status['previousPublicVersion'], '1.0.2')
         self.assertFalse(status['publicUploadPerformed'])
-        self.assertIsNone(status['newVersionDOI'])
+        self.assertEqual(status['newVersionDOI'], '10.5281/zenodo.23667792')
+        self.assertFalse(status['doiVerification']['publicAvailabilityVerified'])
         self.assertEqual(self.failures(), [])
 
     def test_mismatched_version_rejected(self):
@@ -104,7 +105,12 @@ class ReleaseMetadataTests(unittest.TestCase):
         status = json.loads((self.package / 'RELEASE_STATUS.json').read_text())
         citation = self.package / 'CITATION.cff'
         citation.write_text(citation.read_text() + '\ndoi: ' + status['previousArchiveDOI'] + '\n')
-        self.assertIn('Unpublished release must not borrow an old archive DOI/date', self.failures())
+        self.assertIn('Citation DOI must match the supplied new-version DOI', self.failures())
+
+    def test_unverified_doi_does_not_imply_publication_date(self):
+        citation = self.package / 'CITATION.cff'
+        citation.write_text(citation.read_text() + '\ndate-released: 2026-10-26\n')
+        self.assertIn('Unverified publication must not invent a release date', self.failures())
 
 
 if __name__ == '__main__':

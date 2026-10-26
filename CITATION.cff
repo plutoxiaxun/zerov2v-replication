@@ -1,8 +1,9 @@
 cff-version: 1.2.0
-message: "Please cite the ZeroV2V Replication Package, version 1.1.0. Public archival DOI and release date will be added after publication."
+message: "Please cite the ZeroV2V Replication Package, version 1.1.0, using the DOI below."
 title: "ZeroV2V Replication Package"
 type: dataset
 version: 1.1.0
+doi: 10.5281/zenodo.23667792
 authors:
   - family-names: Xia
     given-names: Xun
