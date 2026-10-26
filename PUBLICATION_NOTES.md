@@ -1,5 +1,11 @@
 # Notes on Analysis and Interpretation
 
+The following path-count summary refers to the original release cohorts,
+not all later supplementary observations. Version 1.1.0 adds
+separate cohorts described in [REVISION_DISCLOSURE.md](REVISION_DISCLOSURE.md).
+Neither the original observations nor the slow database and concurrency runs
+are replaced. This version has not yet been uploaded publicly.
+
 ## Path-comparison results
 
 The repeated comparisons do not show a uniform speed advantage for direct
@@ -35,7 +41,7 @@ than a general speedup claim.
 2. The 66-row strict matrix evaluates protocol and recovery boundaries.
 3. The current-workset cohort uses a changed source state and is not merged
    with the earlier 426.8-GB state.
-4. The 12-row final-core cohort checks the final tested revision and
+4. The 12-row final-core cohort checks its archived tested revision and
    is excluded from the strict-matrix denominator and all performance results.
 5. Historical VM-B and VM-C path triplicates are sensitivity evidence because
    source-read counters or allocation metrics are incomplete or inconsistent.
@@ -55,9 +61,9 @@ analysis.
 ## What can be checked
 
 The archive supports recomputation of the controlled, downtime, sparse-copy,
-current-workset, and protocol results. Table V is released as a descriptive
+current-workset, and protocol results. The historical adaptation table is a descriptive
 aggregate rather than per-log observations; the same-workload
-TCG/KVM trials in Table VI remain fully available per run. Raw infrastructure
+TCG/KVM trials remain fully available per run. Raw infrastructure
 databases, journals, screenshots, credentials, and identifiers are kept under
 controlled access. Batch-level hashes identify the final-core summary, plan,
 and state database retained by the authors. The access process is described in

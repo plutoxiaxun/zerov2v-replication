@@ -1,7 +1,10 @@
 # Experiment Reproduction Runbook
 
-The public CSV and JSON files are sufficient to recompute the reported
-aggregates without access to the test infrastructure. Re-executing the
+The public CSV and JSON files permit recalculation of the row-based
+statistics without access to the test infrastructure. Historical conversion
+distributions and additional fault/acceptance counts are released as
+aggregates; independently reconstructing those aggregates requires the
+controlled source records described in `DATA_ACCESS.md`. Re-executing the
 migration protocol requires a VMware source, a Ceph-backed KVM target cloud,
 VDDK, `nbdkit`, `virt-v2v`, and site-specific credentials.
 
@@ -25,9 +28,11 @@ runner is serial and stops on an unexpected failure.
 Run these commands from the root of the released repository:
 
 ```bash
-python3 scripts/verify_manifest.py
-python3 scripts/audit_public_release.py
-python3 scripts/analyze_public_data.py
+python3 -B scripts/verify_manifest.py
+python3 -B scripts/audit_public_release.py --release-ready
+python3 -B scripts/analyze_public_data.py
+python3 -B scripts/analyze_revision.py
+python3 -B scripts/test_revision.py
 ```
 
 The analysis output must reproduce the controlled-trial effects, current

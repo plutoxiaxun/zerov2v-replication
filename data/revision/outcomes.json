@@ -1,0 +1,34 @@
+{
+  "scope": "Archived campaign-level reconciliation, not invented per-run failure timings.",
+  "campaigns": {
+    "S6a": {
+      "formalInitialTasksTotal": 35,
+      "nativeAcceptedTotal": 33,
+      "completeSuccessfulBatchesTotal": 14,
+      "failedBatchesRetained": 1,
+      "originalInitialFailuresRetained": 2
+    },
+    "D1r": {
+      "originalInitialSubmissions": 12,
+      "originalMigrationJobsSucceeded": 11,
+      "originalMigrationJobsFailed": 1,
+      "unassistedOriginalFullAcceptance": 10,
+      "originalObserverReadbackTimeout": 1,
+      "successfulOriginalJobLaterReadonlyAckSupplement": 1
+    },
+    "P1Heldout": {
+      "finalAcceptedRows": 12,
+      "unassistedFormalAccepted": 10,
+      "separateAuxiliaryAccepted": 2,
+      "originalFormalFailuresPreserved": 2
+    },
+    "F1r": {
+      "formalFaultObservations": 6,
+      "groupCreateObservedFailures": 3,
+      "groupCreateSameJobRecoverySupported": false,
+      "finalCbtSameJobRecoveries": 3,
+      "finalCbtNativeAccepted": 3,
+      "expectedFailureNotCountedAsMigrationSuccess": true
+    }
+  }
+}

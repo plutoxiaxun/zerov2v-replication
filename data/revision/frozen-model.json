@@ -1,0 +1,99 @@
+{
+  "calibration": [
+    {
+      "pair": 1,
+      "measured": {
+        "Ds": 16017981440,
+        "Dt": 13996654592,
+        "Dr": 15604121600,
+        "Bstg": 98874597.63090807,
+        "Bout": 32626234.48018648,
+        "Bp": 73855780.46499634,
+        "Tconv": 42.0,
+        "Tdir_ctl": 52.72172900000001,
+        "Tstg_ctl": 64.99700000000001
+      },
+      "observedDirectSeconds": 306.0,
+      "observedStagedSeconds": 656.0
+    },
+    {
+      "pair": 2,
+      "measured": {
+        "Ds": 16017588224,
+        "Dt": 13996589056,
+        "Dr": 15604121600,
+        "Bstg": 93803955.49204713,
+        "Bout": 34221489.13447433,
+        "Bp": 80132987.26669846,
+        "Tconv": 43.0,
+        "Tdir_ctl": 49.27218400000001,
+        "Tstg_ctl": 63.24400000000003
+      },
+      "observedDirectSeconds": 287.0,
+      "observedStagedSeconds": 643.0
+    },
+    {
+      "pair": 3,
+      "measured": {
+        "Ds": 16017719296,
+        "Dt": 13996916736,
+        "Dr": 15604121600,
+        "Bstg": 89311331.08443408,
+        "Bout": 14152595.284125378,
+        "Bp": 82179929.8372987,
+        "Tconv": 43.0,
+        "Tdir_ctl": 48.122476000000006,
+        "Tstg_ctl": 64.65300000000002
+      },
+      "observedDirectSeconds": 281.0,
+      "observedStagedSeconds": 1233.0
+    }
+  ],
+  "heldoutFeatures": {
+    "heldout_db": {
+      "inputs": {
+        "Ds": 136411198352.78352,
+        "Dt": 119199501669.31577,
+        "Dr": 132888526848,
+        "Bstg": 93996628.06912977,
+        "Bout": 27000106.299595397,
+        "Bp": 78722899.1896645,
+        "Tconv": 42.666666666666664,
+        "Tdir_ctl": 50.038796333333345,
+        "Tstg_ctl": 64.29800000000002
+      },
+      "predictedSeconds": {
+        "direct": 1780.7597421981789,
+        "staged": 5930.311996369824
+      }
+    },
+    "heldout_scale": {
+      "inputs": {
+        "Ds": 208250495345.0586,
+        "Dt": 181974468132.16574,
+        "Dr": 202872651776,
+        "Bstg": 93996628.06912977,
+        "Bout": 27000106.299595397,
+        "Bp": 78722899.1896645,
+        "Tconv": 42.666666666666664,
+        "Tdir_ctl": 50.038796333333345,
+        "Tstg_ctl": 64.29800000000002
+      },
+      "predictedSeconds": {
+        "direct": 2669.7529785802576,
+        "staged": 9019.576856841268
+      }
+    }
+  },
+  "formulas": {
+    "D": "Dr/Bp + Tconv + Tdir_ctl",
+    "Q": "Ds/Bstg + Dt/Bout + Tstg_ctl"
+  },
+  "modelFrozen": true,
+  "heldoutPredictionsFrozen": true,
+  "heldoutResultsUsed": false,
+  "calibrationLineages": 1,
+  "heldoutDrIsAllocationEstimate": true,
+  "sourceTrainingSha256": "89fc3d32ed2fca90423141ea5dc78c7e8f7b5c4296c6733bdebcaf39b3c3eebe",
+  "sourcePredictionPlanSha256": "497a978f820e2680f043fc6d0c79f08151d1b820911fd93e4d29810d34ad1df9"
+}

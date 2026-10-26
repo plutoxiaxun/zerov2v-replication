@@ -1,0 +1,11 @@
+{
+  "status": "local_release_not_uploaded",
+  "version": "1.1.0",
+  "previousPublicVersion": "1.0.2",
+  "preparedDate": "2026-10-25",
+  "manuscript": "ZeroV2V: A Recoverable VMware-to-KVM/Ceph Migration Protocol with Final-RBD Checkpointing",
+  "previousArchiveDOI": "10.5281/zenodo.22143427",
+  "previousArchiveContainsTheseNewFiles": false,
+  "newVersionDOI": null,
+  "publicUploadPerformed": false
+}

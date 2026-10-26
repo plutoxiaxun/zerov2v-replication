@@ -1,9 +1,8 @@
 cff-version: 1.2.0
-message: "Please cite the article and archived dataset when using this replication package."
+message: "Please cite the ZeroV2V Replication Package, version 1.1.0. Public archival DOI and release date will be added after publication."
 title: "ZeroV2V Replication Package"
 type: dataset
-version: 1.0.2
-date-released: 2026-08-28
+version: 1.1.0
 authors:
   - family-names: Xia
     given-names: Xun
@@ -14,5 +13,4 @@ authors:
     email: cnlgeswnu@qq.com
     orcid: https://orcid.org/0009-0009-6729-3614
 repository-code: https://github.com/plutoxiaxun/zerov2v-replication
-doi: 10.5281/zenodo.22143427
 license: CC-BY-4.0

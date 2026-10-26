@@ -1,78 +1,563 @@
 {
-  "schema_version": "1.0",
-  "scope": "Data-bearing manuscript figures, tables, and adjacent numerical claims",
+  "schema_version": "2.0",
+  "manuscript": "Condensed revision, 20 pages, 2026-10-25",
+  "scope": "All 20 tables, six main figures, two relocated diagrams, and separate fault outcomes.",
   "entries": [
     {
-      "artifact_id": "Table IV and Fig. 5",
-      "source_data": ["master_analysis.csv"],
-      "selection": "VM-P1 sparse_policy_trial rows and performance-eligible L1 strict-matrix rows; three observations per path",
-      "transformation": "P1 uses mean active_seconds; L1 uses mean measured_stage_seconds; relative changes are computed against staging within each workload and metric",
-      "caption_claim": "Separate P1 complete-active and L1 source-read/conversion comparisons; no pooled path effect",
-      "supported_manuscript_claims": ["P1 direct path was 27.4% shorter", "L1 direct stage was 0.7% longer and effectively neutral"],
-      "limitations": ["P1 staging lacks a source-read counter with the same definition", "P1 and L1 use different timing metrics and must not be pooled"]
+      "artifact_id": "Table 1",
+      "title": "Model parameters",
+      "source_data": [],
+      "selection": "Definitions and units, not fitted observations",
+      "transformation": "Definitions and units, not fitted observations",
+      "scripts": [],
+      "caption_claim": "Model parameters",
+      "supported_manuscript_claims": [
+        "Definitions and units, not fitted observations"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
     },
     {
-      "artifact_id": "Table V",
-      "source_data": ["conversion_environment_summary.csv"],
-      "selection": "All parseable historical guest-adaptation durations classified as TCG or KVM",
-      "transformation": "Descriptive min, max, arithmetic mean, and median by execution environment",
-      "caption_claim": "Observed guest-adaptation duration distributions by execution environment",
-      "supported_manuscript_claims": ["42 parsed TCG runs and 48 parsed KVM runs", "descriptive TCG/KVM mean ratio of 5.84"],
-      "limitations": ["The historical TCG and KVM workloads are heterogeneous", "The ratio is descriptive, not a causal same-workload speedup", "The public file contains a group summary rather than journal-linked per-run observations"]
+      "artifact_id": "Table 2",
+      "title": "Path evidence scope",
+      "source_data": [],
+      "selection": "Design and evidence classification, not a numerical comparison",
+      "transformation": "Design and evidence classification, not a numerical comparison",
+      "scripts": [],
+      "caption_claim": "Path evidence scope",
+      "supported_manuscript_claims": [
+        "Design and evidence classification, not a numerical comparison"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
     },
     {
-      "artifact_id": "Table VI and Fig. 6",
-      "source_data": ["controlled_trials.csv"],
-      "selection": "VM-E through VM-H low-downtime TCG and KVM groups; three repetitions per environment and workload",
-      "transformation": "Mean downtime_s by workload and environment; reduction is one minus KVM mean divided by TCG mean",
-      "caption_claim": "Same-workload effect of the conversion worker execution environment",
-      "supported_manuscript_claims": ["KVM shortened controlled cutover means by 70.3% to 79.6%"],
-      "limitations": ["The TCG/KVM comparison concerns the worker execution environment and is reported separately from the protocol results", "The comparison does not establish performance for other hardware or workloads"]
+      "artifact_id": "Table 3",
+      "title": "Protocol invariants",
+      "source_data": [],
+      "selection": "Protocol claims and crash boundaries; not a reliability estimate",
+      "transformation": "Protocol claims and crash boundaries; not a reliability estimate",
+      "scripts": [],
+      "caption_claim": "Protocol invariants",
+      "supported_manuscript_claims": [
+        "Protocol claims and crash boundaries; not a reliability estimate"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
     },
     {
-      "artifact_id": "Table VII",
-      "source_data": ["analysis_summary.json", "sensitivity_rows.csv"],
-      "selection": "Primary low-downtime traces without post-shutdown recovery, with a second row adding three known shared-network contention traces",
-      "transformation": "Count, arithmetic mean, median, range, and sample standard deviation of offline_cutover_seconds",
-      "caption_claim": "Ordinary-path cutover distribution and network-contention sensitivity",
-      "supported_manuscript_claims": ["Normal path n=42, mean 174.7 s, median 92 s", "Sensitivity n=45, mean 263.5 s, median 97 s"],
-      "limitations": ["Post-shutdown recovery cases are summarized separately from ordinary-path cutover times", "The three contention traces remain public and are not deleted"]
+      "artifact_id": "Table 4",
+      "title": "Evaluation environment",
+      "source_data": [],
+      "selection": "Declared testbed configuration, not a statistical estimate",
+      "transformation": "Declared testbed configuration, not a statistical estimate",
+      "scripts": [],
+      "caption_claim": "Evaluation environment",
+      "supported_manuscript_claims": [
+        "Declared testbed configuration, not a statistical estimate"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
     },
     {
-      "artifact_id": "Table VIII and Fig. 7",
-      "source_data": ["master_analysis.csv", "boundary_cases.csv"],
-      "selection": "VM-P1 and VM-P2 sparse-policy triplicates plus the named B600 historical boundary pair",
-      "transformation": "Mean active_seconds, measured_stage_seconds, and source_read_gib for each sparse policy; direct and staged B600 active durations are reported without pooling",
-      "caption_claim": "Sparse-copy behavior and the full-read boundary of direct output",
-      "supported_manuscript_claims": ["Sparse-aware behavior is workload dependent", "B600 direct full read took 114.0 min versus 27.6 min staged"],
-      "limitations": ["B600 is a boundary counterexample, not a representative workload", "Sparse-policy rows do not establish a universal direct-write speedup"]
+      "artifact_id": "Table 5",
+      "title": "Controlled path cohorts",
+      "source_data": [
+        "master_analysis.csv"
+      ],
+      "selection": "VM-P1 sparse full_scan and staged; eligible L1 strict rows; means and sample SD of separate timing endpoints",
+      "transformation": "VM-P1 sparse full_scan and staged; eligible L1 strict rows; means and sample SD of separate timing endpoints",
+      "scripts": [
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Controlled path cohorts",
+      "supported_manuscript_claims": [
+        "VM-P1 sparse full_scan and staged; eligible L1 strict rows; means and sample SD of separate timing endpoints"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
     },
     {
-      "artifact_id": "Table IX",
-      "source_data": ["current_workset.csv"],
-      "selection": "L2 current-workset repetitions after the source-content change",
-      "transformation": "Median and range of measured_stage_seconds and wall_seconds within staged and direct paths",
-      "caption_claim": "Current-workset stage and complete-task decomposition",
-      "supported_manuscript_claims": ["Direct first stage was 38.7% longer", "Direct complete-task wall time was 64.6% shorter because staged import was slow"],
-      "limitations": ["The wall-time difference is not attributed to direct-write speed", "Rows span supplemental revisions and have asymmetric second-stage throughput"]
+      "artifact_id": "Table 6",
+      "title": "Historical adaptation",
+      "source_data": [
+        "conversion_environment_summary.csv"
+      ],
+      "selection": "Descriptive aggregate TCG/KVM; use parsed_count, not csv_count",
+      "transformation": "Descriptive aggregate TCG/KVM; use parsed_count, not csv_count",
+      "scripts": [
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Historical adaptation",
+      "supported_manuscript_claims": [
+        "Descriptive aggregate TCG/KVM; use parsed_count, not csv_count"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
     },
     {
-      "artifact_id": "Table X",
-      "source_data": ["strict_matrix.csv"],
-      "selection": "All 66 strict-matrix rows",
-      "transformation": "Status counts, successful target-disk sum, sampled-block sum, and group-checkpoint row count",
-      "caption_claim": "Protocol completion and correctness evidence",
-      "supported_manuscript_claims": ["63 successes and 3 declared expected failures", "102 successful target disks and 768 sampled source-target locations"],
-      "limitations": ["Sampled blocks are not whole-disk hashes", "Running and console evidence do not establish application-level availability"]
+      "artifact_id": "Table 7",
+      "title": "Controlled cutover",
+      "source_data": [
+        "controlled_trials.csv"
+      ],
+      "selection": "VM-E through VM-H, three repeats per engine; arithmetic phase means",
+      "transformation": "VM-E through VM-H, three repeats per engine; arithmetic phase means",
+      "scripts": [
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Controlled cutover",
+      "supported_manuscript_claims": [
+        "VM-E through VM-H, three repeats per engine; arithmetic phase means"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
     },
     {
-      "artifact_id": "Final-core validation paragraph",
-      "source_data": ["final_core_validation.csv", "analysis_summary.json"],
-      "selection": "All 12 final FC rows, kept separate from the 66-row matrix",
-      "transformation": "Terminal-status counts and hashes of retained source records",
-      "caption_claim": "Final repetition of the core fault boundaries",
-      "supported_manuscript_claims": ["10 rows succeeded and 2 declared rollback rows failed as expected"],
-      "limitations": ["Correctness-only cohort; excluded from performance aggregates", "Expected failures count only when fault_point is direct_conversion.after"]
+      "artifact_id": "Table 8",
+      "title": "Cutover sensitivity",
+      "source_data": [
+        "master_analysis.csv",
+        "sensitivity_rows.csv"
+      ],
+      "selection": "Primary low downtime without recovery, and the same set plus the three contention rows",
+      "transformation": "Primary low downtime without recovery, and the same set plus the three contention rows",
+      "scripts": [
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Cutover sensitivity",
+      "supported_manuscript_claims": [
+        "Primary low downtime without recovery, and the same set plus the three contention rows"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 9",
+      "title": "Sparse policy",
+      "source_data": [
+        "master_analysis.csv"
+      ],
+      "selection": "sparse_policy_trial rows; group by workload, mode and conversion_engine; means and sample SD",
+      "transformation": "sparse_policy_trial rows; group by workload, mode and conversion_engine; means and sample SD",
+      "scripts": [
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Sparse policy",
+      "supported_manuscript_claims": [
+        "sparse_policy_trial rows; group by workload, mode and conversion_engine; means and sample SD"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 10",
+      "title": "Current L2",
+      "source_data": [
+        "current_workset.csv",
+        "revision/observations.json"
+      ],
+      "selection": "Separate staged/direct stage, measured target transfer/publication and full wall endpoints; medians, ranges, adjacent control",
+      "transformation": "Separate staged/direct stage, measured target transfer/publication and full wall endpoints; medians, ranges, adjacent control",
+      "scripts": [
+        "scripts/analyze_revision.py",
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Current L2",
+      "supported_manuscript_claims": [
+        "Separate staged/direct stage, measured target transfer/publication and full wall endpoints; medians, ranges, adjacent control"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 11",
+      "title": "Strict matrix",
+      "source_data": [
+        "strict_matrix.csv"
+      ],
+      "selection": "66 predefined rows; status, disk, console and sampling counts; do not add final-core rows",
+      "transformation": "66 predefined rows; status, disk, console and sampling counts; do not add final-core rows",
+      "scripts": [
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Strict matrix",
+      "supported_manuscript_claims": [
+        "66 predefined rows; status, disk, console and sampling counts; do not add final-core rows"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 12",
+      "title": "Historical reconciliation",
+      "source_data": [
+        "master_analysis.csv"
+      ],
+      "selection": "Unique record_id and seven role flags; full pairwise intersection matrix",
+      "transformation": "Unique record_id and seven role flags; full pairwise intersection matrix",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "Historical reconciliation",
+      "supported_manuscript_claims": [
+        "Unique record_id and seven role flags; full pairwise intersection matrix"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 13",
+      "title": "Concurrency",
+      "source_data": [
+        "revision/observations.json"
+      ],
+      "selection": "S6a complete batches by width; means and sample SD; mean of paired width*single_duration/batch_duration ratios",
+      "transformation": "S6a complete batches by width; means and sample SD; mean of paired width*single_duration/batch_duration ratios",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "Concurrency",
+      "supported_manuscript_claims": [
+        "S6a complete batches by width; means and sample SD; mean of paired width*single_duration/batch_duration ratios"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 14",
+      "title": "Database diagnosis",
+      "source_data": [
+        "revision/observations.json"
+      ],
+      "selection": "diagnosis rows paired by pair and mode; order QD,DQ,QD; Q-D, means and sign-flip test",
+      "transformation": "diagnosis rows paired by pair and mode; order QD,DQ,QD; Q-D, means and sign-flip test",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "Database diagnosis",
+      "supported_manuscript_claims": [
+        "diagnosis rows paired by pair and mode; order QD,DQ,QD; Q-D, means and sign-flip test"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 15",
+      "title": "Independent confirmation",
+      "source_data": [
+        "revision/observations.json"
+      ],
+      "selection": "Original formal database, diagnosis and new confirmation kept separate; whole-pair omissions are secondary sensitivity only",
+      "transformation": "Original formal database, diagnosis and new confirmation kept separate; whole-pair omissions are secondary sensitivity only",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "Independent confirmation",
+      "supported_manuscript_claims": [
+        "Original formal database, diagnosis and new confirmation kept separate; whole-pair omissions are secondary sensitivity only"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 16",
+      "title": "Path, ablation and competitor",
+      "source_data": [
+        "revision/observations.json"
+      ],
+      "selection": "earlySupplementary S1/R1 wallSeconds; M1 migrationSeconds and firstbootFromCreationSeconds; paired blocks, no pooled endpoint",
+      "transformation": "earlySupplementary S1/R1 wallSeconds; M1 migrationSeconds and firstbootFromCreationSeconds; paired blocks, no pooled endpoint",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "Path, ablation and competitor",
+      "supported_manuscript_claims": [
+        "earlySupplementary S1/R1 wallSeconds; M1 migrationSeconds and firstbootFromCreationSeconds; paired blocks, no pooled endpoint"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 17",
+      "title": "SQL response gap",
+      "source_data": [
+        "revision/observations.json",
+        "revision/outcomes.json"
+      ],
+      "selection": "D1r successes for duration; attempted denominator retained; reductions use complete matched blocks only",
+      "transformation": "D1r successes for duration; attempted denominator retained; reductions use complete matched blocks only",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "SQL response gap",
+      "supported_manuscript_claims": [
+        "D1r successes for duration; attempted denominator retained; reductions use complete matched blocks only"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 18",
+      "title": "Verification cost",
+      "source_data": [
+        "revision/observations.json"
+      ],
+      "selection": "V1r by policy/diskCount; mean and sample SD; 100*uniqueVerifiedBytes/logicalDiskBytes",
+      "transformation": "V1r by policy/diskCount; mean and sample SD; 100*uniqueVerifiedBytes/logicalDiskBytes",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "Verification cost",
+      "supported_manuscript_claims": [
+        "V1r by policy/diskCount; mean and sample SD; 100*uniqueVerifiedBytes/logicalDiskBytes"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 19",
+      "title": "Frozen model",
+      "source_data": [
+        "revision/observations.json",
+        "revision/outcomes.json",
+        "revision/frozen-model.json"
+      ],
+      "selection": "Reconstruct frozen predictions from three calibration pairs and fixed feature vectors; P1 formal and not assisted; MAPE=100*mean(abs(actual-predicted)/actual); five paired choices against always-direct",
+      "transformation": "Reconstruct frozen predictions from three calibration pairs and fixed feature vectors; P1 formal and not assisted; MAPE=100*mean(abs(actual-predicted)/actual); five paired choices against always-direct",
+      "scripts": [
+        "scripts/analyze_revision.py"
+      ],
+      "caption_claim": "Frozen model",
+      "supported_manuscript_claims": [
+        "Reconstruct frozen predictions from three calibration pairs and fixed feature vectors; P1 formal and not assisted; MAPE=100*mean(abs(actual-predicted)/actual); five paired choices against always-direct"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Table 20",
+      "title": "Closest systems",
+      "source_data": [],
+      "selection": "Documentary comparison using cited interfaces; unspecified is not absent",
+      "transformation": "Documentary comparison using cited interfaces; unspecified is not absent",
+      "scripts": [],
+      "caption_claim": "Closest systems",
+      "supported_manuscript_claims": [
+        "Documentary comparison using cited interfaces; unspecified is not absent"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
+    },
+    {
+      "artifact_id": "Figure 1",
+      "title": "Architecture",
+      "source_data": [],
+      "selection": "Design diagram; no empirical numerical input",
+      "transformation": "Design diagram; no empirical numerical input",
+      "scripts": [],
+      "caption_claim": "Architecture",
+      "supported_manuscript_claims": [
+        "Design diagram; no empirical numerical input"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
+    },
+    {
+      "artifact_id": "Figure 2",
+      "title": "Protocol state machine",
+      "source_data": [],
+      "selection": "Design diagram; no empirical numerical input",
+      "transformation": "Design diagram; no empirical numerical input",
+      "scripts": [],
+      "caption_claim": "Protocol state machine",
+      "supported_manuscript_claims": [
+        "Design diagram; no empirical numerical input"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
+    },
+    {
+      "artifact_id": "Figure 3",
+      "title": "Controlled paths",
+      "source_data": [
+        "master_analysis.csv"
+      ],
+      "selection": "Same selection as Table 5; individual points and three-run mean lines, seconds",
+      "transformation": "Same selection as Table 5; individual points and three-run mean lines, seconds",
+      "scripts": [
+        "scripts/analyze_public_data.py",
+        "scripts/plot_public_figures.py"
+      ],
+      "caption_claim": "Controlled paths",
+      "supported_manuscript_claims": [
+        "Same selection as Table 5; individual points and three-run mean lines, seconds"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Figure 4",
+      "title": "Controlled cutover",
+      "source_data": [
+        "controlled_trials.csv"
+      ],
+      "selection": "Same selection as Table 7; mean bars and observed min/max error bars, seconds",
+      "transformation": "Same selection as Table 7; mean bars and observed min/max error bars, seconds",
+      "scripts": [
+        "scripts/analyze_public_data.py",
+        "scripts/plot_public_figures.py"
+      ],
+      "caption_claim": "Controlled cutover",
+      "supported_manuscript_claims": [
+        "Same selection as Table 7; mean bars and observed min/max error bars, seconds"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Figure 5",
+      "title": "Sparse copy",
+      "source_data": [
+        "master_analysis.csv"
+      ],
+      "selection": "VM-P1/VM-P2 full_scan versus vddk_extents; stage mean/min/max in seconds; mean of 100*source_read_gib/allocated_capacity_gib in percent of provisioned capacity",
+      "transformation": "VM-P1/VM-P2 full_scan versus vddk_extents; stage mean/min/max in seconds; mean of 100*source_read_gib/allocated_capacity_gib in percent of provisioned capacity",
+      "scripts": [
+        "scripts/analyze_public_data.py",
+        "scripts/plot_public_figures.py"
+      ],
+      "caption_claim": "Sparse copy",
+      "supported_manuscript_claims": [
+        "VM-P1/VM-P2 full_scan versus vddk_extents; stage mean/min/max in seconds; mean of 100*source_read_gib/allocated_capacity_gib in percent of provisioned capacity"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Figure 6",
+      "title": "Concurrency",
+      "source_data": [
+        "revision/observations.json"
+      ],
+      "selection": "S6a successful batch points, mean and sample SD; incomplete batch labeled without invented duration",
+      "transformation": "S6a successful batch points, mean and sample SD; incomplete batch labeled without invented duration",
+      "scripts": [
+        "scripts/analyze_revision.py",
+        "scripts/plot_public_figures.py"
+      ],
+      "caption_claim": "Concurrency",
+      "supported_manuscript_claims": [
+        "S6a successful batch points, mean and sample SD; incomplete batch labeled without invented duration"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
+    },
+    {
+      "artifact_id": "Supplement Figure S1",
+      "title": "Data paths",
+      "source_data": [],
+      "selection": "Original design diagram relocated to supplement",
+      "transformation": "Original design diagram relocated to supplement",
+      "scripts": [],
+      "caption_claim": "Data paths",
+      "supported_manuscript_claims": [
+        "Original design diagram relocated to supplement"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
+    },
+    {
+      "artifact_id": "Supplement Figure S2",
+      "title": "Lifecycle",
+      "source_data": [],
+      "selection": "Original design diagram relocated to supplement",
+      "transformation": "Original design diagram relocated to supplement",
+      "scripts": [],
+      "caption_claim": "Lifecycle",
+      "supported_manuscript_claims": [
+        "Original design diagram relocated to supplement"
+      ],
+      "limitations": [
+        "Specified in the manuscript, not an empirical result reconstructed from released rows."
+      ],
+      "kind": "design_or_configuration"
+    },
+    {
+      "artifact_id": "Recovery boundary paragraphs",
+      "title": "Archived fault outcomes",
+      "source_data": [
+        "final_core_validation.csv",
+        "revision/outcomes.json"
+      ],
+      "selection": "Original 12-row core remains distinct from six F1r observations; newer code correction has local tests, not new historical fault outcomes",
+      "transformation": "Original 12-row core remains distinct from six F1r observations; newer code correction has local tests, not new historical fault outcomes",
+      "scripts": [
+        "scripts/analyze_revision.py",
+        "scripts/analyze_public_data.py"
+      ],
+      "caption_claim": "Archived fault outcomes",
+      "supported_manuscript_claims": [
+        "Original 12-row core remains distinct from six F1r observations; newer code correction has local tests, not new historical fault outcomes"
+      ],
+      "limitations": [
+        "Cohort-specific observations; no pooling, unmeasured causal attribution or independent raw-platform validation."
+      ],
+      "kind": "empirical"
     }
   ]
 }

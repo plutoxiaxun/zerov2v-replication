@@ -9,20 +9,26 @@ counts. It is not a deployable copy of the migration controller.
 Run the following commands from the repository root:
 
 ```bash
-python3 scripts/verify_manifest.py
-python3 scripts/audit_public_release.py
-python3 scripts/analyze_public_data.py
+python3 -B scripts/verify_manifest.py
+python3 -B scripts/audit_public_release.py --release-ready
+python3 -B scripts/analyze_public_data.py
+python3 -B scripts/analyze_revision.py
+python3 -B scripts/test_revision.py
 ```
 
 The first command verifies every released file against `MANIFEST.sha256`.
 The second checks row counts, subset membership, fault points, topology and
 sampling rules, deidentification patterns, local links, and unexpected files.
-The third recalculates the statistics reported in the manuscript from the
-public tables and prints JSON to standard output.
+The two analysis commands recalculate the original and revision statistics
+from public tables and print JSON to standard output. The tests exercise
+paired indexing, key numerical claims and retained adverse outcomes.
 
 `data/figure_table_trace.json` maps each data-bearing manuscript table and
 figure to its source file, row selection, calculation, claim, and limitation.
-Field definitions are in [DATA_DICTIONARY.md](DATA_DICTIONARY.md).
+The trace uses the current 20-page manuscript numbering. Original field
+definitions are in [DATA_DICTIONARY.md](DATA_DICTIONARY.md); added fields,
+cohorts, endpoints and disclosure boundaries are in
+[REVISION_DISCLOSURE.md](REVISION_DISCLOSURE.md).
 
 ## Evidence available by result
 
@@ -36,6 +42,9 @@ Field definitions are in [DATA_DICTIONARY.md](DATA_DICTIONARY.md).
 | 600-GiB full-read counterexample | `boundary_cases.csv` | Both path observations are public and remain outside pooled effects |
 | 66-run protocol matrix | `strict_matrix.csv` | Per-run status, fault point, eligibility, topology, block-sample count, console count, and commit boundary |
 | Final 12-run fault-validation cohort | `final_core_validation.csv`, `analysis_summary.json` | Per-run status and evidence counts, tested commit, checkpoint presence, and hashes of the retained source records |
+| Supplementary performance, recovery cost, competing tool, concurrency, SQL service, verification and frozen model | `revision/observations.json` | Individual timing observations; failed completion values stay null or in separate outcome counts |
+| Database diagnosis and independent confirmation | `revision/observations.json` | Paired timings, frozen predictions, per-disk request counters and phase decomposition; all slow observations retained |
+| Additional fault boundaries and acceptance accounting | `revision/outcomes.json` | Explicitly aggregate archived outcomes; raw fault/acceptance records remain controlled |
 
 The historical TCG/KVM distribution is not used as a causal comparison. The
 same-workload controlled trials provide the public per-run evidence for the
@@ -55,8 +64,10 @@ conversion-worker deployment result.
 - `Running` is a target-cloud control-plane state. Console samples support the
   reported boot gate; neither field is an application-readiness test.
 - Sampled block comparisons are not whole-disk hashes.
-- The final-core cohort checks the final tested revision and does not alter the
+- The final-core cohort checks its archived tested revision and does not alter the
   historical matrix denominator or any performance estimate.
+- Later local code-correction tests are not relabeled as new live migration
+  or fault-injection outcomes.
 
 The numerical consequences of these boundaries are summarized in
 [PUBLICATION_NOTES.md](PUBLICATION_NOTES.md) and the claim-level decisions are

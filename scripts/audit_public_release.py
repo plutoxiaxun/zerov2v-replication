@@ -494,7 +494,7 @@ def audit_figure_table_trace(failures: list[str]) -> None:
         failures.append(f"figure_table_trace.json is not valid JSON: {exc}")
         return
     entries = document.get("entries", [])
-    require(len(entries) == 8, "figure_table_trace.json: expected 8 entries", failures)
+    require(len(entries) == 29, "figure_table_trace.json: expected 29 entries", failures)
     required = {
         "artifact_id",
         "source_data",
@@ -504,16 +504,9 @@ def audit_figure_table_trace(failures: list[str]) -> None:
         "supported_manuscript_claims",
         "limitations",
     }
-    expected_artifacts = {
-        "Table IV and Fig. 5",
-        "Table V",
-        "Table VI and Fig. 6",
-        "Table VII",
-        "Table VIII and Fig. 7",
-        "Table IX",
-        "Table X",
-        "Final-core validation paragraph",
-    }
+    expected_artifacts = ({f"Table {i}" for i in range(1,21)}
+                          | {f"Figure {i}" for i in range(1,7)}
+                          | {"Supplement Figure S1", "Supplement Figure S2", "Recovery boundary paragraphs"})
     observed_artifacts = set()
     for index, entry in enumerate(entries, 1):
         missing = sorted(required - set(entry))
@@ -529,6 +522,8 @@ def audit_figure_table_trace(failures: list[str]) -> None:
                 f"figure_table_trace.json entry {index}: missing source {source_name}",
                 failures,
             )
+        for script in entry.get("scripts", []):
+            require((PACKAGE / script).is_file(), f"Missing trace script {script}", failures)
         require(
             bool(entry.get("supported_manuscript_claims")),
             f"figure_table_trace.json entry {index}: no supported claim",
@@ -583,11 +578,14 @@ def audit_text(failures: list[str]) -> None:
 
 def audit_packaging_hygiene(failures: list[str]) -> None:
     for path in sorted(PACKAGE.rglob("*")):
-        if not path.is_file():
-            continue
         relative = path.relative_to(PACKAGE)
-        if ".git" in relative.parts:
+        if relative.parts[0] == '.git':
             continue
+        require(not path.is_symlink(), f"{relative}: symlink must not be released", failures)
+        if path.is_symlink() or not path.is_file():
+            continue
+        require(path.name == 'MANIFEST.sha256' or path.suffix in {'.py','.md','.txt','.json','.csv','.cff'},
+                f"{relative}: unexpected binary/archive or file type", failures)
         require(
             not any(part.startswith(".") for part in relative.parts)
             and "__pycache__" not in relative.parts
@@ -621,6 +619,17 @@ def audit_release_metadata(failures: list[str]) -> None:
         content = citation.read_text(encoding="utf-8")
         require("TODO" not in content, "CITATION.cff contains TODO", failures)
         require("zenodo.TODO" not in content, "CITATION.cff DOI is incomplete", failures)
+        status = json.loads((PACKAGE / 'RELEASE_STATUS.json').read_text())
+        version = re.search(r'^version:\s*(\S+)\s*$', content, re.M)
+        require(version is not None and version[1] == status.get('version'),
+                'Citation and release-status versions must match', failures)
+        require(re.fullmatch(r'\d+\.\d+\.\d+', status.get('version', '')) is not None,
+                'Release version must not contain a prerelease suffix', failures)
+        if not status['publicUploadPerformed']:
+            require(not re.search(r'^doi:|^date-released:', content, re.M),
+                    'Unpublished release must not borrow an old archive DOI/date', failures)
+            require(status['newVersionDOI'] is None and status['status'] == 'local_release_not_uploaded',
+                    'Unpublished release metadata conflicts', failures)
     require(
         not (PACKAGE / "CITATION.cff.template").exists(),
         "CITATION.cff.template must not be shipped in the final release",
@@ -650,6 +659,11 @@ def main() -> None:
     audit_tables(failures)
     audit_analysis_summary(failures)
     audit_figure_table_trace(failures)
+    from analyze_revision import analyze
+    try:
+        analyze()
+    except (AssertionError, KeyError, ValueError, OSError) as exc:
+        failures.append(f"revision data: {type(exc).__name__}: {exc}")
     audit_text(failures)
     audit_packaging_hygiene(failures)
     audit_document_links(failures)

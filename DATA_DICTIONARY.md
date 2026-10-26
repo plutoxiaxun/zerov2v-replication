@@ -15,6 +15,14 @@
 | `final_core_validation.csv` | One final fault-validation run | Correctness confirmation only; excluded from all performance aggregates |
 | `analysis_summary.json` | One release summary | Cohort counts, downtime strata, and hashes of retained source records |
 | `figure_table_trace.json` | One trace entry per data-bearing artifact | Public input, transformation, supported claim, and limitation for manuscript figures and tables |
+| `revision/observations.json` | Cohort-specific observation arrays | Supplementary performance, concurrency, service, verification, prediction, diagnosis and confirmation |
+| `revision/outcomes.json` | Campaign-level outcome counts | Original failures, native acceptance and later corroboration, separate from numerical completion rows |
+| `revision/provenance.json` | Source hashes and correction metadata | Binding to controlled source exports without publishing private paths |
+| `revision/frozen-model.json` | Three calibration pairs and two held-out feature vectors | Original fixed prediction construction; no held-out refitting |
+
+The revision fields, units, selection rules and known limitations are defined
+in [REVISION_DISCLOSURE.md](REVISION_DISCLOSURE.md). They have different names
+and endpoints from the original CSV schema; do not concatenate the cohorts.
 
 `record_id` values are release-local pseudonyms. They are stable within the
 frozen release but are not source job identifiers. Workload labels such as
