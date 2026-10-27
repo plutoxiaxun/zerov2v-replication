@@ -3,13 +3,14 @@
 This repository accompanies the ZeroV2V IEEE Access manuscript. It contains
 the deidentified data and analysis scripts used to calculate the results
 reported in the paper, **ZeroV2V: A Recoverable VMware-to-KVM/Ceph Migration
-Protocol with Final-RBD Checkpointing**. This is the **1.1.0 release package**,
-with reserved DOI [10.5281/zenodo.23667792](https://doi.org/10.5281/zenodo.23667792).
-Upload and publication are pending, as confirmed by the author; see
-`RELEASE_STATUS.json`. The previous public
-version is **1.0.2** and remains archived separately.
+Protocol with Final-RBD Checkpointing**. This is the **1.1.1 release package**,
+DOI [10.5281/zenodo.23689584](https://doi.org/10.5281/zenodo.23689584).
+It updates documentation and release-metadata checks. All observation data,
+numerical analysis scripts, and plotting code are byte-identical to version
+**1.1.0**, DOI [10.5281/zenodo.23667792](https://doi.org/10.5281/zenodo.23667792).
+The 1.1.0 and earlier 1.0.2 archives remain unchanged.
 See [REVISION_DISCLOSURE.md](REVISION_DISCLOSURE.md)
-for the added data, measurement definitions and publication checklist.
+for the data, measurement definitions and archive verification instructions.
 Reviewers can start with [REVIEWER_GUIDE.md](REVIEWER_GUIDE.md).
 
 ## Contents and scope
@@ -76,9 +77,8 @@ and renders the four quantitative figures to a user-selected output directory.
 rejects unlisted files; the release audit checks file types and common
 identifier and credential patterns.
 
-`--release-ready` checks package hygiene and metadata consistency; it does not
-mean that a public upload has occurred. The DOI above identifies the intended
-1.1.0 archive; the release date will be recorded after publication.
+`--release-ready` checks package hygiene, version, and DOI consistency. The version DOI identifies this
+1.1.1 archive. `RELEASE_STATUS.json` records immutable artifact metadata.
 
 See [DATA_ACCESS.md](DATA_ACCESS.md) for the controlled-access procedure.
 [EXPERIMENT_RUNBOOK.md](EXPERIMENT_RUNBOOK.md) separates public

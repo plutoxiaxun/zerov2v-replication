@@ -625,7 +625,16 @@ def audit_release_metadata(failures: list[str]) -> None:
                 'Citation and release-status versions must match', failures)
         require(re.fullmatch(r'\d+\.\d+\.\d+', status.get('version', '')) is not None,
                 'Release version must not contain a prerelease suffix', failures)
-        if status['status'] == 'reserved_doi_pending_publication':
+        if status['status'] == 'release_artifact':
+            dois = re.findall(r'^doi:\s*(\S+)\s*$', content, re.M)
+            require(dois == [status.get('newVersionDOI')] and
+                    re.fullmatch(r'10\.\d{4,9}/\S+', status.get('newVersionDOI') or '') is not None,
+                    'Citation DOI must match the supplied new-version DOI', failures)
+            require(not re.search(r'^date-released:', content, re.M),
+                    'Artifact citation must not add an undeclared release date', failures)
+            require('publicUploadPerformed' not in status and 'doiVerification' not in status,
+                    'Artifact metadata must not contain mutable publication-state fields', failures)
+        elif status['status'] == 'reserved_doi_pending_publication':
             dois = re.findall(r'^doi:\s*(\S+)\s*$', content, re.M)
             require(dois == [status.get('newVersionDOI')] and
                     re.fullmatch(r'10\.\d{4,9}/\S+', status.get('newVersionDOI') or '') is not None,

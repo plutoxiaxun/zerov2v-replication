@@ -1,10 +1,15 @@
 # Disclosure for the condensed revision
 
-Version 1.1.0 adds the observations and calculations supporting
-the 20-page revision. Its reserved DOI is
-[10.5281/zenodo.23667792](https://doi.org/10.5281/zenodo.23667792);
-upload and publication are pending. The
-previous public version is 1.0.2; its archive DOI is not a DOI for these new files.
+Version 1.1.1, DOI
+[10.5281/zenodo.23689584](https://doi.org/10.5281/zenodo.23689584),
+contains the observations and calculations supporting the 20-page revision.
+It updates documentation and release-metadata checks from version 1.1.0
+(DOI 10.5281/zenodo.23667792). Observation data, numerical analysis scripts,
+plotting code, figure/table mappings, and provenance are byte-identical
+to 1.1.0. The manuscript hash in provenance identifies the 1.1.0 manuscript
+snapshot, before the publication-status and DOI wording corrections; it
+is not a hash of the newly compiled submission PDF. No observations,
+cohort membership, calculations, or scientific claims changed.
 See [RELEASE_STATUS.json](RELEASE_STATUS.json).
 
 ## Included material
@@ -173,19 +178,16 @@ Raw fault and acceptance evidence remains subject to
 not part of this data-and-analysis package; standalone simulation or local
 unit tests must not be advertised as experimental migration reproduction.
 
-## Before public release
+## Archive integrity
 
 Export only the paths listed in `MANIFEST.sha256`, plus the manifest itself.
 Do not zip a development checkout wholesale: local `.git` metadata, caches,
 editor files and unlisted backups are not release artifacts. Verify the
-extracted archive again before upload. Named author contact details and ORCID
+extracted archive with the supplied integrity and analysis scripts. Named author contact details and ORCID
 identifiers in citation/access metadata are intentional scholarly attribution,
 not part of the deidentified experimental records.
 
 Run the manifest, release audit, both analysis scripts and regression tests
-from a clean standalone copy. Use public tag `v1.1.0` and create a new Zenodo
-version rather than overwriting the 1.0.2 archive. The supplied 1.1.0 DOI is now
-in the citation metadata and manuscript. Confirm that its public record contains
-the intended version and files before marking publication verified or filling in
-the release date. These local metadata updates do not upload or replace any
-GitHub or Zenodo content.
+from a clean standalone copy. Version 1.1.1 is identified by DOI
+10.5281/zenodo.23689584. Archive checks cover the contents of this
+package; operational platform evidence remains controlled as described above.
